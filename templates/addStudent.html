@@ -1,0 +1,27 @@
+{% extends "include.html" %}
+
+{% block content %}
+
+{% include "navbar.html" %}
+<div class="container-fluid text-center" style="margin-top: 60px;">
+    <h1 class="fw-bold">INSERT STUDENT DETAILS</h1><br>
+    <div class="container rounded border border-primary col-offset-5 col-md-5 col-xs-5 text-center">
+        <form action="" method="POST">
+            {% csrf_token %}
+        <br><h1>FILL THE DETAILS</h1><hr>
+        <input type="text" required maxlength="30" name="name" placeholder="STUDENT'S NAME" id="" class="form form-control"><br>
+        <input type="text" required maxlength="30" name="rollNumber" id="" placeholder="STUDENT'S ROLLNUMBER" class="form form-control"><br>
+        <input type="text" maxlength="30" required name="mail" placeholder="STUDENT'S MAIL" id="" class="form form-control"><br>
+        <input type="tel" required maxlength="20" name="phoneNumber" placeholder="STUDENT'S CONTACT NUMBER" id="" class="form form-control"><br>
+        <input type="tel" required maxlength="30" name="phoneNumber" placeholder="PARENT'S CONTACT NUMBER" id="" class="form form-control"><br>
+        <input type="file"  name="image" id="" class="form form-control"><br>
+        <select name="type" required id="" class="form form-control">
+            <option value="disabled" disabled  selected> SELECT THE TYPE</option>
+            <option value="VEGETARION">VEGETARION</option>
+            <option value="NON-VEGETARION">NON-VEGETARION</option>
+        </select><br>
+        <input type="submit" value="INSERT STUDENT DATA" class="btn btn-primary w-100"><br><br>
+
+    </div></form>
+</div>
+{% endblock %}
