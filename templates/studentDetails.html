@@ -3,8 +3,38 @@
 
 {% include "navbar.html" %}
 
-<div class="container-fluid">
+<div class="container-fluid"><br>
     <h1 class="display-4 fw-bold text-center" style="margin-top: 50px;">HOSTEL STUDENTS DATA</h1><br>
+    <div class="container col-offset-12 rounded border border-primary col-md-12 col-xs-12 text-center"><br>
+        <h1>SEARCH FOR STUDENTS</h1><hr>
+        <input type="text" name="search" id="search" placeholder="SEARCH THE STUDENT DATA" class="form form-control"><br>
+        
+        <table class="table table-bordered border border-white table-dark">
+            <thead>
+              <tr>
+                <th scope="col">S.NO</th>
+                <th scope="col">NAME</th>
+                <th scope="col">ROLL NUMBER</th>
+                <th scope="col">MAIL</th>
+                <th scope="col">UPDATE</th>
+                <th scope="col">DELETE</th>
+                
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row"></th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><a href="" class="btn btn-success ">UPDATE</a>
+                <td><a href="" class="btn btn-danger ">DELETE</a>
+              </tr>
+ 
+            </tbody>
+          </table>
+    </div>
 </div>
 
 {% endblock %}
