@@ -11,3 +11,7 @@ def add(request):
 
 def updateStudent(request):
     return render(request,"updateStudent.html")
+
+
+def search(request):
+    return render(request,"studentDetails.html")
