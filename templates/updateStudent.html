@@ -9,17 +9,13 @@
         <form action="" method="POST">
             {% csrf_token %}
         <br><h1>FILL THE DETAILS</h1><hr>
-        <input type="text" name="name" placeholder="STUDENT'S NAME" id="" class="form form-control"><br>
-        <input type="text" name="rollNumber" id="" placeholder="STUDENT'S ROLLNUMBER" class="form form-control"><br>
-        <input type="text" name="mail" placeholder="STUDENT'S MAIL" id="" class="form form-control"><br>
-        <input type="tel" name="phoneNumber" placeholder="STUDENT'S CONTACT NUMBER" id="" class="form form-control"><br>
-        <input type="tel" name="phoneNumber" placeholder="PARENT'S CONTACT NUMBER" id="" class="form form-control"><br>
+        <input type="text" name="name" placeholder="STUDENT'S NAME" id="" value="{{data.studentName}}" class="form form-control"><br>
+        <input type="text" name="rollNumber" id="" value="{{data.studentRollNumber}}" placeholder="STUDENT'S ROLLNUMBER" class="form form-control"><br>
+        <input type="text" name="mail" placeholder="STUDENT'S MAIL" value="{{data.studentMail}}" id="" class="form form-control"><br>
+        <input type="tel" name="phoneNumber" placeholder="STUDENT'S CONTACT NUMBER" value="{{data.studentPhoneNumber}}" id="" class="form form-control"><br>
+        <input type="tel" name="parentPhoneNumber" value="{{data.parentPhoneNumber}}" placeholder="PARENT'S CONTACT NUMBER" id="" class="form form-control"><br>
         <input type="file" name="image" id="" class="form form-control"><br>
-        <select name="type" id="" class="form form-control">
-            <option value="disabled" disabled  selected> SELECT THE TYPE</option>
-            <option value="VEGETARION">VEGETARION</option>
-            <option value="NON-VEGETARION">NON-VEGETARION</option>
-        </select><br>
+        <input type="text" name="foodType" class="form form-control" value="{{data.foodType}}" placeholder="VEG/NON-VEG"  id=""><br>
         <input type="submit" value="UPDATE STUDENT DATA" class="btn fw-bold btn-primary w-100"><br><br>
 
     </div></form>

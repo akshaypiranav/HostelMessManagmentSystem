@@ -1,15 +1,23 @@
 {% extends "include.html" %}
 {% block content %}
 {% include "navbar.html" %}
+{% load static %}
 <body class="container-fluid bg-white text-center text-dark">
     <h1 class="display-4 fw-bold" style="margin-top: 120px;">HOSTEL MESS MANAGEMENT SYSTEM</h1><br>
     <form action="" method="POST">
             {% csrf_token %}
         <div class="container col-offset-5 col-md-5 col-xs-5 text-center rounded fw-bold border border-primary">
-            <br><h1 class=" fw-bold">CHECK STUDENT</h1><br>
-            <img src="" alt="" width="180" height="200" class="border rounded border-primary "><br><br>
-            <input type="text" name="rollNumber" placeholder="ENTER THE ROLL NUMBER" class="form form-control" id=""><br>
-            <input type="submit" value="CHECK" class="btn btn-primary w-100"><br><br>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <br><h1 class=" fw-bold">CHECK STUDENT</h1>
+                {% if studentData %}
+                <img src="{{ studentData.image.url }}" alt="{{studentData.studentName}}" width="200" height="250" class="border rounded border-primary "><br><br>
+                {% else %}
+                <img src="{% static 'user.png' %}" alt="" width="180" height="200" class="border rounded border-primary "><br><br>
+                {% endif %}
+                <input type="text" name="rollNumber" placeholder="ENTER THE ROLL NUMBER" class="form form-control" id=""><br>
+                <input type="submit" value="CHECK" class="btn btn-primary w-100"><br><br>
+            </form>
         </div>
 
     </form>
