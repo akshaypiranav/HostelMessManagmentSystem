@@ -23,15 +23,18 @@
               </tr>
             </thead>
             <tbody>
+              {% if studentDB %}
+              {% for i in studentDB %}
               <tr>
-                <th scope="row"></th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><a href="" class="btn btn-success ">UPDATE</a>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{i.studentName}}</td>
+                <td>{{i.studentRollNumber}}</td>
+                <td>{{i.studentMail}}</td>
+                <td><a href="{% url 'updateStudent' %}" class="btn btn-success ">UPDATE</a>
                 <td><a href="" class="btn btn-danger ">DELETE</a>
               </tr>
- 
+              {% endfor %}
+              {% endif %}
             </tbody>
           </table>
     </div>
