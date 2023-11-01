@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import *
 # Create your views here.
 def index(request):
@@ -30,10 +30,13 @@ def add(request):
     return render(request,"addStudent.html")
 
 
-def updateStudent(request):
+def updateStudent(request,id):
     return render(request,"updateStudent.html")
 
 
 def search(request):
     studentDB=StudentDetails.objects.all()
     return render(request,"studentDetails.html",{"studentDB":studentDB})
+
+def delete(request,id):
+     return redirect("search")

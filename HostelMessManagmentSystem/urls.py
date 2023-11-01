@@ -21,6 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("",views.index,name="index"),
     path("add",views.add,name="add"),
-    path("updateStudent",views.updateStudent,name="updateStudent"),
-    path("search",views.search,name="search")
+    path("updateStudent/<int:id>",views.updateStudent,name="updateStudent"),
+    path("search",views.search,name="search"),
+    path("delete/<int:id>",views.delete,name="delete")
 ]

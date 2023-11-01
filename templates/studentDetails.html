@@ -30,8 +30,8 @@
                 <td>{{i.studentName}}</td>
                 <td>{{i.studentRollNumber}}</td>
                 <td>{{i.studentMail}}</td>
-                <td><a href="{% url 'updateStudent' %}" class="btn btn-success ">UPDATE</a>
-                <td><a href="" class="btn btn-danger ">DELETE</a>
+                <td><a href="updateStudent/{{i.id}}" class="btn btn-success ">UPDATE</a>
+                <td><a href="delete/{{i.id}}" class="btn btn-danger ">DELETE</a>
               </tr>
               {% endfor %}
               {% endif %}
