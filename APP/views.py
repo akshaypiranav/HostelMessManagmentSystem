@@ -128,6 +128,7 @@ def send(request):
         time="LUNCH"
     else:
         time="DINNER"
+
     if request.method=="POST":
         pass
 

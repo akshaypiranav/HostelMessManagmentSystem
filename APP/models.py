@@ -19,6 +19,28 @@ class StudentDetails(models.Model):
         db_table='studentDetails'
 
 class Count(models.Model):
-    totalCount=models.IntegerField(blank=False,default=0)
+    totalCount = models.IntegerField(blank=False,default=0)
     class Meta:
         db_table="countTable"
+
+class breakfastCount(models.Model):
+    totalCount = models.IntegerField(blank=False,default=0)
+    class Meta:
+        db_table="breakfastCount" 
+
+   
+class lunchCount(models.Model):
+    totalCount = models.IntegerField(blank=False,default=0)
+    class Meta:
+        db_table="lunchCount"    
+
+
+class dinnerCount(models.Model):
+    totalCount = models.IntegerField(blank=False,default=0)
+    class Meta:
+        db_table="dinnerCount"   
+
+class snacksCount(models.Model):
+    totalCount = models.IntegerField(blank=False,default=0)
+    class Meta:
+        db_table="snacksCount"    
