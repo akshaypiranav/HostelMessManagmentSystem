@@ -1,12 +1,40 @@
 from django.shortcuts import render,redirect
 from .models import *
-# Create your views here.
+import csv
+
+
+def isRollNumberExists(csv_file, roll_number):
+    try:
+        with open(csv_file, mode='r') as file:
+            reader = csv.reader(file)
+            next(reader)  
+            for row in reader:
+                if row[1] == roll_number:
+                    return True
+    except FileNotFoundError:
+        return False
+
+    return False
+
+def writeData(name, roll_number, parent_number):
+    csv_file = 'mess.csv'
+
+    if isRollNumberExists(csv_file, roll_number):
+        pass
+    else:
+        new_data = [
+            [name, roll_number, parent_number]
+        ]
+        with open(csv_file, mode='a', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerows(new_data)
+
 def index(request):
     if request.method=="POST":
         rollNumber=request.POST.get("rollNumber")
-        if(StudentDetails.objects.filter(studentRollNumber=rollNumber).exists()):
-            studentData=StudentDetails.objects.get(studentRollNumber=rollNumber)
-            print(studentData.image)
+        if(StudentDetails.objects.filter(studentRollNumber=rollNumber.upper()).exists()):
+            studentData=StudentDetails.objects.get(studentRollNumber=rollNumber.upper())
+            writeData(studentData.studentName,studentData.studentRollNumber,studentData.parentPhoneNumber)
             print("HOSTELLER")
             return render(request,"index.html",{"studentData":studentData})
         else:
@@ -26,12 +54,12 @@ def add(request):
         parentPhoneNumber=request.POST.get("parentPhoneNumber")
         foodType=request.POST.get("foodType")
         if(not(StudentDetails.objects.filter(studentRollNumber=rollNumber).exists())):
-            studentDB.studentName=name
-            studentDB.studentRollNumber=rollNumber
-            studentDB.studentMail=mail
+            studentDB.studentName=name.upper()
+            studentDB.studentRollNumber=rollNumber.upper()
+            studentDB.studentMail=mail.upper()
             studentDB.studentPhoneNumber=phoneNumber
             studentDB.parentPhoneNumber=parentPhoneNumber
-            studentDB.foodType=foodType
+            studentDB.foodType=foodType.upper()
 
             if(len(request.FILES)!=0):
                     studentDB.image=request.FILES['image']
@@ -64,10 +92,10 @@ def updateStudent(request,id):
         studentDB.foodType=foodType
 
         if(len(request.FILES)!=0):
-                studentDB.image=request.FILES['image']
+            studentDB.image=request.FILES['image']
                 
         else:
-                print("nope")  
+            print("nope")  
         studentDB.save()
         return redirect("search")
     return render(request,"updateStudent.html",{"data":studentDB})

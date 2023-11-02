@@ -17,3 +17,5 @@ class StudentDetails(models.Model):
     image=models.ImageField(upload_to=getFileName,null=True,blank=True)
     class Meta:
         db_table='studentDetails'
+
+
