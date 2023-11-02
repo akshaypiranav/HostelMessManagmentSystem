@@ -18,4 +18,7 @@ class StudentDetails(models.Model):
     class Meta:
         db_table='studentDetails'
 
-
+class Count(models.Model):
+    totalCount=models.IntegerField(blank=False,default=0)
+    class Meta:
+        db_table="countTable"

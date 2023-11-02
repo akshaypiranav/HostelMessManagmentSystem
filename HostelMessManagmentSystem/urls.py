@@ -27,6 +27,7 @@ urlpatterns = [
     path("updateStudent/<int:id>",views.updateStudent,name="updateStudent"),
     path("search",views.search,name="search"),
     path("delete/<int:id>",views.delete,name="delete"),
+    path("send",views.send,name="send")
 ]
 
 if settings.DEBUG:

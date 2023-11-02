@@ -1,0 +1,17 @@
+{% extends "include.html" %}
+{% block content %}
+
+{% include "navbar.html" %}
+
+<div class="container border border-primary rounded col-offset-10 col-md-10 col-xs-10" style="margin-top: 100px;">
+    <br><h1 class="fw-bold display-4 text-center">TODAY "{{date | upper}}" COUNT : <span class="text-primary">{{total}}</span></h1><br>
+    <br><h1 class="fw-bold display-4 text-center">TODAY {{time}} : <span class="text-primary">{{total}}</span></h1><br>
+    <form action="" method="POST">
+
+        {% csrf_token %}
+        <input type="submit" value="SEND DETAILS AND MESSSAGE" class="w-100 btn btn-primary"><br><br>
+
+    </form>
+</div>
+
+{% endblock %}

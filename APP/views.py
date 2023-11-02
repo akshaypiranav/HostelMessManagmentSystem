@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import *
 import csv
-
+import datetime
 
 def isRollNumberExists(csv_file, roll_number):
     try:
@@ -17,6 +17,8 @@ def isRollNumberExists(csv_file, roll_number):
     return False
 
 def writeData(name, roll_number, parent_number):
+    count=Count.objects.get(id=1)
+    countValue=count.totalCount
     csv_file = 'mess.csv'
 
     if isRollNumberExists(csv_file, roll_number):
@@ -28,6 +30,8 @@ def writeData(name, roll_number, parent_number):
         with open(csv_file, mode='a', newline='') as file:
             writer = csv.writer(file)
             writer.writerows(new_data)
+            count.totalCount=countValue+1
+            count.save()
 
 def index(request):
     if request.method=="POST":
@@ -110,3 +114,21 @@ def delete(request,id):
           studentDB=StudentDetails.objects.get(id=id)
           studentDB.delete()
      return redirect("search")
+
+
+def send(request):
+    totalCount=Count.objects.get(id=1)
+    total=totalCount.totalCount
+    date=datetime.datetime.today()
+    currentDate=date.date()
+    hour=datetime.datetime.now()
+    if(hour.hour>8 and hour.hour<12):
+        time="BREAKFAST"
+    elif(hour.hour>12 and hour.hour<14):
+        time="LUNCH"
+    else:
+        time="DINNER"
+    if request.method=="POST":
+        pass
+
+    return render(request,"send.html",{"total":total,"date":currentDate,"time":time})
