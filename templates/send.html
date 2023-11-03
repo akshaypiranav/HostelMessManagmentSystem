@@ -4,14 +4,28 @@
 {% include "navbar.html" %}
 
 <div class="container border border-primary rounded col-offset-10 col-md-10 col-xs-10" style="margin-top: 100px;">
-    <br><h1 class="fw-bold display-4 text-center">TODAY "{{date | upper}}" COUNT : <span class="text-primary">{{total}}</span></h1><br>
-    <br><h1 class="fw-bold display-4 text-center">TODAY {{time}} : <span class="text-primary">{{total}}</span></h1><br>
+    <br/><select autofocus name="time" id="" class="form form-control text-center">
+        <option value="" disabled selected>SELECT THE HOUR</option>
+        <option value="MORNING">MORNING</option>
+        <option value="MORNING">LUNCH</option>
+        <option value="MORNING">SNACKS</option>
+        <option value="MORNING">DINNER</option>
+    </select>
+    <br><h1 class="fw-bold display-4 text-center">TODAY "{{date | upper}}" TOTAL COUNT : <span class="text-primary">{{total}}</span></h1><br>
+    <br><h1 class="fw-bold  text-center">CURRENT HOUR : {{time}}</h1><br>
+    <br><h2 class="fw-bold  text-center">BREAKFAST COUNT : {{breakTotal}}</h1><br>
+    <br><h2 class="fw-bold  text-center">LUNCH COUNT : {{lunchTotal}}</h1><br>
+    <br><h2 class="fw-bold  text-center">SNACKS COUNT : {{snacksTotal}}</h1><br>
+    <br><h2 class="fw-bold  text-center">DINNER COUNT : {{dinnerTotal}}</h1><br>
+
     <form action="" method="POST">
 
         {% csrf_token %}
         <input type="submit" value="SEND DETAILS AND MESSSAGE" class="w-100 btn btn-primary"><br><br>
 
+
     </form>
+    <a href="{% url 'resetData' %}" class="btn btn-danger w-100">RESET ALL</a><br><br>
 </div>
 
 {% endblock %}
