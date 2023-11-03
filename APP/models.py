@@ -44,3 +44,37 @@ class snacksCount(models.Model):
     totalCount = models.IntegerField(blank=False,default=0)
     class Meta:
         db_table="snacksCount"    
+
+class breakfast(models.Model):
+    creationDate = models.DateTimeField(auto_now=True)
+    breakfastTotalCount=models.IntegerField(blank=False,default=0)
+    class meta:
+        db_table="breakfast"
+
+
+class lunch(models.Model):
+    creationDate = models.DateTimeField(auto_now=True)
+    lunchTotalCount=models.IntegerField(blank=False,default=0)
+    class meta:
+        db_table="lunch"
+
+
+class snacks(models.Model):
+    creationDate = models.DateTimeField(auto_now=True)
+    snacksTotalCount=models.IntegerField(blank=False,default=0)
+    class meta:
+        db_table="snacks"
+
+
+class dinner(models.Model):
+    creationDate = models.DateTimeField(auto_now=True)
+    dinnerTotalCount=models.IntegerField(blank=False,default=0)
+    class meta:
+        db_table="dinner"
+
+
+class overallTotal(models.Model):
+    creationDate = models.DateTimeField(auto_now=True)
+    TotalCount=models.IntegerField(blank=False,default=0)
+    class meta:
+        db_table="overallTotal"

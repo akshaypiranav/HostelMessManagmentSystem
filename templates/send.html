@@ -5,7 +5,7 @@
 
 <div class="container border border-primary rounded col-offset-10 col-md-10 col-xs-10" style="margin-top: 100px;">
     <br/>
-    <h1 class="display-4 fw-bold text-center text-dark">TODAY "{{date | upper }}" LIST </h1>
+    <h1 class="display-4 fw-bold text-center text-dark">TODAY "{{date | upper }}" OVERALL : {{total}} </h1>
     <table class="table table-bordered border border-white table-dark text-center">
         <thead>
 
@@ -13,7 +13,7 @@
             <th scope="col" >S.NO</th>
             <th scope="col">MEALS</th>
             <th scope="col">COUNT</th>
-            <th>SHOW DETAILS</th>
+            <!-- <th>SHOW DETAILS</th> -->
 
           </tr>
         </thead>
@@ -23,26 +23,26 @@
             <th scope="row">1</th>
             <td>BREAKFAST</td>
             <td>{{breakTotal}}</td>
-            <td><a href="viewDetail/breakfast" class="btn btn-success">VIEW DETAILS</a></td>
+            <!-- <td><a href="viewDetail/breakfast" class="btn btn-success">VIEW DETAILS</a></td> -->
 
           </tr>
           <tr>
             <th scope="row" > 2</th>
             <td>LUNCH</td>
             <td>{{lunchTotal}}</td>
-            <td><a href="viewDetail/lunch" class="btn btn-success">VIEW DETAILS</a></td>
+            <!-- <td><a href="viewDetail/lunch" class="btn btn-success">VIEW DETAILS</a></td> -->
           </tr>
           <tr>
             <th scope="row" >3</th>
             <td>SNACKS</td>
             <td>{{snacksTotal}}</td>
-            <td><a href="viewDetail/snacks" class="btn btn-success">VIEW DETAILS</a></td>
+            <!-- <td><a href="viewDetail/snacks" class="btn btn-success">VIEW DETAILS</a></td> -->
           </tr>
           <tr>
             <th scope="row" >4</th>
             <td>DINNER</td>
             <td>{{dinnerTotal}}</td>
-            <td><a href="viewDetail/dinner" class="btn btn-success">VIEW DETAILS</a></td>
+            <!-- <td><a href="viewDetail/dinner" class="btn btn-success">VIEW DETAILS</a></td> -->
           </tr>
         </tbody>
       </table>
@@ -50,7 +50,7 @@
     <form action="" method="POST">
 
         {% csrf_token %}
-        <input type="submit" value="SEND DETAILS AND MESSSAGE" class="w-100 btn btn-primary"><br><br>
+        <a href="{% url 'save' %}" class="btn btn-primary w-100">SAVE ALL</a><br><br>
 
 
     </form>

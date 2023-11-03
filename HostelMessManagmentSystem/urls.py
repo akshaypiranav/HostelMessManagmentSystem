@@ -29,7 +29,8 @@ urlpatterns = [
     path("delete/<int:id>",views.delete,name="delete"),
     path("send",views.send,name="send"),
     path("resetData",views.resetData,name="resetData"),
-    path("viewDetail/<str:meal>",views.viewDetail,name="viewDetail")
+    path("viewDetail/<str:meal>",views.viewDetail,name="viewDetail"),
+    path("save",views.save,name="save")
 ]
 
 if settings.DEBUG:

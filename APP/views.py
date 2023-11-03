@@ -321,3 +321,50 @@ def viewDetail(request,meal):
     print(data)
 
     return render(request, 'mealDetails.html', {'data': data,"meal":meal})
+
+
+def save(request):
+    count=Count.objects.get(id=1)
+    totalValue=count.totalCount
+    print(totalValue)
+    breakfastValue=breakfastCount.objects.get(id=1)
+    breakTotalValue=breakfastValue.totalCount
+    print(breakTotalValue)
+
+    lunchValue=lunchCount.objects.get(id=1)
+    lunchTotalValue=lunchValue.totalCount
+    print(lunchTotalValue)
+
+    snacksValue=snacksCount.objects.get(id=1)
+    snacksTotalValue=snacksValue.totalCount
+    print(snacksTotalValue)
+
+    dinnerValue=dinnerCount.objects.get(id=1)
+    dinnerTotalValue=dinnerValue.totalCount
+    print(dinnerTotalValue)
+
+
+    object1=breakfast()
+    object1.breakfastTotalCount=breakTotalValue
+    object1.save()
+
+
+    object2=lunch()
+    object2.lunchTotalCount=lunchTotalValue
+    object2.save()
+
+    object3=snacks()
+    object3.snacksTotalCount=snacksTotalValue
+    object3.save()
+
+
+    object4=dinner()
+    object4.dinnerTotalCount=dinnerTotalValue
+    object4.save()
+
+
+    object5=overallTotal()
+    object5.TotalCount=totalValue
+    object5.save()
+    
+    return redirect("send")
