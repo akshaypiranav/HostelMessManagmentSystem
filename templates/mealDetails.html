@@ -1,0 +1,40 @@
+
+{% extends "include.html" %}
+
+{% block content %}
+{% include "navbar.html" %}
+<div class="container rounded col-offset-10 col-md-10 col-xs-10 border border-primary " style="margin-top: 90px;">
+    <br><h1 class="display-4  text-center fw-bold">{{meal | upper}} DETAILS</h1>
+    <input type="text" name="search" class="form form-control" autofocus placeholder="SEARCH STUDENT"  id=""><br>
+{% if data %}
+    <table class="table table-bordered  border border-white table-dark text-center">
+        <thead>
+    
+          <tr>
+            <th scope="col" >S.NO</th>
+            <th scope="col">NAME</th>
+            <th scope="col">ROLL NUMBER</th>
+            <th>CONTACT</th>
+    
+          </tr>
+        </thead>
+        <tbody>
+            {% for i in data %}
+            <tr>{{forloop.counter}}</tr>
+            <tr>mk</tr>
+            <tr>{{i.0}}</tr>
+            <tr>{{i.1}}</tr>
+            <tr>{{i.2}}</tr>
+            
+            {% endfor %}
+        </tbody>
+
+{% else %}
+<h1 class="fw-bold text-center">NO VALUE FOUND</h1>
+
+{% endif %}
+</div>
+
+
+
+{% endblock %}

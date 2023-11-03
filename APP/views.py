@@ -302,8 +302,22 @@ def resetData(request):
 
 
     with open(dinnerCSV, 'w', newline='') as dinnerCSVAlias:
-        dinnerCSVAlias.truncate(0)
+        dinnerCSVAlias.truncate(1)
     dinnerCSVAlias.close()
 
 
     return redirect("send")
+
+
+def viewDetail(request,meal):
+
+    data = []  
+    with open(f'{meal}.csv', 'r') as file:
+        print(file)
+        csv_reader = csv.DictReader(file)
+        for row in csv_reader:
+            print(row)
+            data.append(row)
+    print(data)
+
+    return render(request, 'mealDetails.html', {'data': data,"meal":meal})
